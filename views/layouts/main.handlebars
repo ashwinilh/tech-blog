@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css">
-  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js" 
-  integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc" 
-  crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+    integrity="sha384-rOA1PnstxnOBLzCLMcre8ybwbTmemjzdNlILg8O7z1lUkLXozs4DHonlDtnE7fpc"
+    crossorigin="anonymous"></script>
   <link rel="stylesheet" href="/style/style.css">
   <title>Hobby Blogs</title>
 </head>
@@ -16,12 +16,15 @@
   <header>
     <h1 class="has-text-black px-3 py-3 has-text-weight-bold">Hobby Blog: Also a Tech Blog</h1>
     <nav class="navbar mt-2">
+      {{#if loggedIn}}
       <a href="/" class="navbar-item is-hoverable pt-1">HomePage</a>
       <a href="/dashboard" class="navbar-item is-hoverable pt-1">Dashboard</a>
       <a href="/dashboard/create/" class="navbar-item is-hoverable pt-1 mr-4">Create a Post</a>
       <button id="logout" class="button is-danger">Logout</button>
+      {{else}}
       <a href="/" class="navbar-item is-hoverable pt-1">Homepage</a>
       <a href="/login" class="button is-primary">Login</a>
+      {{/if}}
     </nav>
   </header>
 
@@ -33,10 +36,13 @@
     <div class="row-is-full content has-text-centered">
       <p>
         <a href="/">Homepage</a>
+        {{#if loggedIn}}
         |
         <a href="/dashboard/">Dashboard</a> |
         <a href="/dashboard/create/">Create a New Post</a>
+        {{else}}
         | <a href="/login/">Login</a>
+        {{/if}}
       </p>
     </div>
     <div class="row-is-full content has-text-centered">
@@ -48,7 +54,8 @@
     </div>
   </footer>
 </div>
-
+{{#if loggedIn}}
+<script src="/scripts/logout.js"></script>{{/if}}
 </body>
 
 </html>
