@@ -26,7 +26,7 @@ router.delete('/:id', withAuth, (req, res) => {
 router.post('/', withAuth, (req, res) => {
   Post.create({
     title: req.body.title,
-    post_content: req.body.post_content,
+    content: req.body.content,
     user_id: req.session.user_id
   })
     .then(dbPostData => res.json(dbPostData))
@@ -39,7 +39,7 @@ router.post('/', withAuth, (req, res) => {
 router.put('/:id', withAuth, (req, res) => {
   Post.update({
     title: req.body.title,
-    post_content: req.body.post_content
+    content: req.body.content
   },
     {
       where: {
